@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-custom {
+    background-color: #2B1966;
+}
+
+.bg-img {
+    background-image: url("../img/login-background.png"), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+}
+
+.txt-field input:focus ~ label,
+.txt-field input:not(:placeholder-shown):valid ~ label {
+    top: -5px;
+    color: #2691d9;
+}
+
+.txt-field input:focus ~ span{
+    width: 100%;
+}
+
+.dropdown {
+    height: 3rem;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.dropdown:hover {
+    height: 10.5rem;
+}
+
+.dropdown:hover > li > .fa-caret-right {
+    transform: rotate(90deg);
+    transition: 0.2s;
+}

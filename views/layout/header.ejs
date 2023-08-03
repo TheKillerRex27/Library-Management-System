@@ -1,0 +1,39 @@
+<header class="h-[12%] align-middle bg-white shadow-md">
+    <nav class="flex items-center justify-between h-full px-8">
+        <h1 class="text-2xl font-semibold text-gray-800">Library Management System</h1>
+        <ul class="flex items-center space-x-6">
+            <li><a class="text-gray-800 hover:text-slate-400" href="/dashboard">Dashboard</a></li>
+            <li class="group relative" onmouseenter="showDropdown()" onmouseleave="hideDropdown()">
+                <a class="text-gray-800 hover:text-slate-400" href="#">Transactions</a>
+                <ul id="transactionsDropdown" class="group-hover:block absolute top-full left-0 py-2 w-32 bg-white border border-gray-200 shadow-md rounded-lg hidden"
+            onmouseenter="showDropdown()" onmouseleave="hideDropdown()">
+                    <li><a class="block px-4 py-2 text-gray-800 hover:text-slate-400" href="/books-loaned">Books Loaned</a></li>
+                    <li><a class="block px-4 py-2 text-gray-800 hover:text-slate-400" href="/books-returned">Books Returned</a></li>
+                </ul>
+            </li>
+            <li><a class="text-gray-800 hover:text-slate-400" href="/books">Books</a></li>
+            <li><a class="text-gray-800 hover:text-slate-400" href="/patreons">Patrons</a></li>
+            <li><a class="text-gray-800 hover:text-slate-400" href="/report">Reports</a></li>
+            <li><a class="text-gray-800 hover:text-slate-400" href="/settings">Settings</a></li>
+            <li><a class="text-slate-800 hover:text-slate-400" href="/logout">Logout <i class="fa-solid fa-sign-out-alt ml-1"></i></a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    let dropdownTimeout;
+
+    function showDropdown() {
+        clearTimeout(dropdownTimeout);
+        const dropdown = document.getElementById('transactionsDropdown');
+        dropdown.classList.remove('hidden');
+    }
+
+    function hideDropdown() {
+        dropdownTimeout = setTimeout(() => {
+            const dropdown = document.getElementById('transactionsDropdown');
+            dropdown.classList.add('hidden');
+        }, 200); // Adjust the timeout duration (in milliseconds) to your preference
+    }
+</script>
+

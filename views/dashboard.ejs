@@ -1,0 +1,61 @@
+<%- include("./layout/head.ejs") %>
+
+<body>
+    
+    <%- include("./layout/sidebar.ejs") %>
+
+    <div class="h-screen flex flex-col bg-slate-100">
+        <%- include("./layout/header.ejs")  %>
+        
+        <main class="flex-grow py-8 px-16">
+            <section class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+                <div class="bg-white rounded-md shadow-md p-6">
+                    <h2 class="text-lg font-semibold mb-4">Students Registered</h2>
+                    <p class="text-3xl font-bold text-slate-900"><%= num_of_patreons %></p>
+                    <a href="/patreons">
+                        <button class="mt-4 px-4 py-2 bg-slate-900 text-white rounded-md hover:bg-slate-700">See More</button>
+                    </a>
+                </div>
+                <div class="bg-white rounded-md shadow-md p-6">
+                    <h2 class="text-lg font-semibold mb-4">Total Borrowers</h2>
+                    <p class="text-3xl font-bold text-slate-900"><%= num_of_issued %></p>
+                    <a href="/report">
+                        <button class="mt-4 px-4 py-2 bg-slate-900 text-white rounded-md hover:bg-slate-700">See More</button>
+                    </a>
+                    
+                </div>
+                <div class="bg-white rounded-md shadow-md p-6">
+                    <h2 class="text-lg font-semibold mb-4">Overdue Returns</h2>
+                    <p class="text-3xl font-bold text-slate-900"><%= num_of_overdue %></p>
+                    <a href="/report">
+                        <button class="mt-4 px-4 py-2 bg-slate-900 text-white rounded-md hover:bg-slate-700">See More</button>
+                    </a>
+                    
+                </div>
+                <div class="bg-white rounded-md shadow-md p-6">
+                    <h2 class="text-lg font-semibold mb-4">Books Registered</h2>
+                    <p class="text-3xl font-bold text-slate-900"><%= num_of_books %></p>
+                    <a href="/books">
+                        <button class="mt-4 px-4 py-2 bg-slate-900 text-white rounded-md hover:bg-slate-700">See More</button>
+                    </a>
+                </div>
+                <div class="bg-white rounded-md shadow-md p-6">
+                    <h2 class="text-lg font-semibold mb-4">Issued Books</h2>
+                    <p class="text-3xl font-bold text-slate-900"><%= num_of_issued %></p>
+                    <a href="/books-loaned">
+                        <button class="mt-4 px-4 py-2 bg-slate-900 text-white rounded-md hover:bg-slate-700">See More</button>
+                    </a>
+                </div>
+                <div class="bg-white rounded-md shadow-md p-6">
+                    <h2 class="text-lg font-semibold mb-4">Unreturned Books</h2>
+                    <p class="text-3xl font-bold text-slate-900"><%= num_of_overdue %></p>
+                    <a href="/report">
+                        <button class="mt-4 px-4 py-2 bg-slate-900 text-white rounded-md hover:bg-slate-700">See More</button>
+                    </a>
+                </div>
+            </section>
+        </main>
+        <%- include("./layout/footer.ejs") %>
+    </div>
+</body>
+</html>

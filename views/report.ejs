@@ -1,0 +1,78 @@
+<%- include("./layout/head.ejs") %>
+
+<body class="h-screen overflow-hidden">
+    <%- include("./layout/sidebar.ejs") %>
+
+    <div class="h-screen flex flex-col bg-slate-100">
+        <%- include("./layout/header.ejs") %>
+
+        <main class="flex flex-row flex-grow mx-8">
+            <div class="w-1/2">
+                <div class="mt-8 mx-10 h-2/5">
+                    <canvas id="amountOwedChart" class="w-full h-full"></canvas>
+                </div>
+                <hr class="h-px mx-16 my-6 bg-slate-300 border-0">
+                <h2 class="text-center font-semibold text-lg">Loans Overview</h2>
+                <section class="h-1/3 mt-2 mx-10 border border-black overflow-y-auto">
+                  <table class="w-full table-auto text-left">
+                    <thead class="border-b-2 border-black">
+                        <tr>
+                            <th class="px-4 py-2">No.</th>
+                            <th class="px-4 py-2">Name</th>
+                            <th class="px-4 py-2">Amount Owed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-black">
+                            <td class="px-4 py-2">1</td>
+                            <td class="px-4 py-2">John Doe</td>
+                            <td class="px-4 py-2">$50.00</td>
+                        </tr>
+                        <tr class="border-b border-black">
+                            <td class="px-4 py-2">2</td>
+                            <td class="px-4 py-2">Jane Smith</td>
+                            <td class="px-4 py-2">$30.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </section>
+            </div>
+            <div class="absolute border-l-2 border-slate-400 h-3/4 top-[16%] left-[60%]"></div>
+            <div class="w-1/2">
+                <div class="mt-8 mx-10 h-2/5">
+                    <canvas id="booksLoanedChart" class="w-full h-full"></canvas>
+                </div>
+                <hr class="h-px mx-16 my-6 bg-slate-300 border-0">
+                <h2 class="text-center font-semibold text-lg">Books Loaned</h2>
+                <section class="h-1/3 mt-2 mx-10 border border-black overflow-y-auto">
+                  <table class="w-full table-auto text-left">
+                    <thead class="border-b-2 border-black">
+                        <tr>
+                            <th class="px-4 py-2">No.</th>
+                            <th class="px-4 py-2">Name</th>
+                            <th class="px-4 py-2">Books Loaned</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-black">
+                            <td class="px-4 py-2">1</td>
+                            <td class="px-4 py-2">John Doe</td>
+                            <td class="px-4 py-2">5</td>
+                        </tr>
+                        <tr class="border-b border-black">
+                            <td class="px-4 py-2">2</td>
+                            <td class="px-4 py-2">Jane Smith</td>
+                            <td class="px-4 py-2">3</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </section>
+            </div>
+        </main>
+
+        <%- include("./layout/footer.ejs") %>
+    </div>
+
+    <%- include("./layout/my-chart-script.ejs") %>
+</body>
+</html>

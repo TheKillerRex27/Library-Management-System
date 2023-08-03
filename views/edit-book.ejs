@@ -1,0 +1,34 @@
+<%- include("./layout/head.ejs") %>
+
+<body>
+    <%- include("./layout/sidebar.ejs") %>
+
+    <div class="h-screen flex flex-col bg-slate-100">
+        <%- include("./layout/header.ejs") %>
+
+        <div class="h-full flex justify-center items-center">
+            <div class="border rounded-md bg-white shadow-lg p-6 w-1/2">
+                <h1 class="font-bold text-lg mb-4">Edit Book</h1>
+                <form action="/edit-book/<%= book._id %>" method="POST">
+                    <div class="mb-4">
+                        <label for="book-name" class="block font-semibold mb-1">Book Name:</label>
+                        <input type="text" name="book_name" id="book-name" class="border rounded-md w-full px-3 py-2" value="<%= book.book_name %>" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="author" class="block font-semibold mb-1">Author:</label>
+                        <input type="text" name="author" id="author" class="border rounded-md w-full px-3 py-2" value="<%= book.author %>" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="year" class="block font-semibold mb-1">Year:</label>
+                        <input type="number" name="year" id="year" class="border rounded-md w-full px-3 py-2" value="<%= book.year %>" required>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="submit" class="bg-slate-900 text-white px-4 py-2 rounded-md hover:bg-slate-700">Update Book</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include("./layout/footer.ejs") %>
+</body>

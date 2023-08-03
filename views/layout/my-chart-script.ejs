@@ -1,0 +1,47 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const booksLoanedChart = document.getElementById('booksLoanedChart');
+
+    new Chart(booksLoanedChart, {
+        type: 'doughnut',
+        data: {
+            labels: ['John Doe', 'Jane Smith'],
+            datasets: [{
+                label: '# of Books Loaned',
+                data: [5, 3],
+                backgroundColor: ['#3490dc', '#9561e2'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    position: 'right'
+                }
+            }
+        }
+    });
+
+    const amountOwedChart = document.getElementById('amountOwedChart');
+
+    new Chart(amountOwedChart, {
+        type: 'bar',
+        data: {
+            labels: ['John Doe', 'Jane Smith'],
+            datasets: [{
+                label: 'Amount Owed',
+                data: [50, 30],
+                backgroundColor: ['#34c3ff', '#9561e2'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

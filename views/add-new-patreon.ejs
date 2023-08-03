@@ -1,0 +1,35 @@
+<%- include("./layout/head.ejs") %>
+
+<body>
+    <%- include("./layout/sidebar.ejs") %>
+
+    <div class="h-screen flex flex-col bg-slate-100">
+        <%- include("./layout/header.ejs") %>
+
+        <div class="h-full flex justify-center items-center">
+            <div class="border rounded-md bg-white shadow-lg p-6 w-1/2">
+                <h1 class="font-bold text-lg mb-4">Add New Patreon</h1>
+                <form action="/add-patreon" method="POST">
+                    <div class="mb-4">
+                        <label for="name" class="block font-semibold mb-1">Patreon Name:</label>
+                        <input type="text" name="name" id="name" class="border rounded-md w-full px-3 py-2" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="reg_num" class="block font-semibold mb-1">Reg Number:</label>
+                        <input type="text" name="reg_num" id="reg_num" class="border rounded-md w-full px-3 py-2" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="dept" class="block font-semibold mb-1">Department:</label>
+                        <input type="text" name="dept" id="dept" class="border rounded-md w-full px-3 py-2" required>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="submit" class="bg-slate-900 text-white px-4 py-2 rounded-md hover:bg-slate-700">Add Patreon</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include("./layout/footer.ejs") %>
+</body>
+</html>

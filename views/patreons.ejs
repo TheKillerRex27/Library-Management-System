@@ -1,0 +1,86 @@
+<%- include("./layout/head.ejs") %>
+
+<body>
+    <%- include("./layout/sidebar.ejs") %>
+
+    <div class="h-screen flex flex-col bg-slate-100">
+
+        <%- include("./layout/header.ejs") %>
+
+        <main class="h-screen">
+            <section class="p-12">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h1 class="text-3xl font-bold">Patrons</h1>
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href="/add-new-patreon"
+                            class="btn-primary px-4 py-2 rounded-lg font-semibold hover:bg-slate-400 hover:text-white">
+                            Add New <i class="fa-solid fa-plus fa-lg py-1 pl-1 text-black"></i>
+                        </a>
+                        <a href="#" class="btn-primary px-4 py-2 rounded-lg font-semibold hover:bg-slate-400 hover:text-white">
+                            Refresh <i class="fa-solid fa-rotate-right fa-lg py-1 pl-1 text-black"></i>
+                        </a>
+                        <form class="flex" action="">
+                            <div class="relative">
+                                <input class="p-2 pr-10 border border-black rounded" type="search" name="" id=""
+                                    placeholder="Search...">
+                                <button class="absolute top-0 right-0 px-4 py-2 bg-custom hover:bg-blue-600 rounded-r"
+                                    type="submit">
+                                    <i class="fa-solid fa-magnifying-glass text-white"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <section class="p-4 border border-black rounded overflow-x-auto">
+                    <% if (patreons.length === 0) { %>
+                    <p class="py-3 text-center">No Patreons Registered</p>
+                    <% } else { %>
+                    <table class="w-full table-auto text-center">
+                        <thead class="border-b-2 border-black">
+                            <tr>
+                                <th class="px-4 py-2">No.</th>
+                                <th class="px-4 py-2">Name</th>
+                                <th class="px-4 py-2">Reg. Number</th>
+                                <th class="px-4 py-2">Department</th>
+                                <th class="px-4 py-2">Date Registered</th>
+                                <th class="px-4 py-2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% patreons.forEach((patreon, i) => { %>
+                            <tr class="<%= i % 2 === 0 ? 'bg-white' : 'bg-gray-100' %>">
+                                <td class="px-4 py-2"><%= i + 1 %></td>
+                                <td class="px-4 py-2"><%= patreon.name %></td>
+                                <td class="px-4 py-2"><%= patreon.reg_num %></td>
+                                <td class="px-4 py-2"><%= patreon.dept %></td>
+                                <td class="px-4 py-2"><%= patreon.date_registered %></td>
+                                <td class="px-4 py-2 flex space-x-2 justify-center items-center">
+                                <a class="btn-icon" href="/patreons/<%= patreon._id %>" title="View">
+                                    <i class="fa-solid fa-eye text-black"></i>
+                                </a>
+                                    <button class="btn-icon" title="Edit">
+                                        <i class="fa-solid fa-pen-to-square text-black"></i>
+                                    </button>
+                                    <form class="inline" action="/delete-patreon" method="POST" onsubmit="return confirm('Are you sure you want to delete this patreon?');">
+                                        <input type="hidden" name="id" value="<%= patreon._id %>">
+                                        <button type="submit" class="btn-icon" title="Delete">
+                                            <i class="fa-solid fa-trash text-black"></i>
+                                        </button>
+                                    </form>                                      
+                                </td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                    <% } %>
+                </section>
+            </section>
+        </main>
+
+        <%- include("./layout/footer.ejs") %>
+    </div>
+</body>
+</html>
